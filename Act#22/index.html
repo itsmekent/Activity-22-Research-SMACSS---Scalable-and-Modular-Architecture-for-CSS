@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/style.css">
+  <title>Contact Form - SMACSS Example</title>
+</head>
+
+<style>
+    /* Base */
+html {
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    transition: background-color 0.3s ease; 
+}
+
+/* Layout */
+.header {
+    height: 60px;
+    background-color: #007BFF;
+    color: white;
+    text-align: center;
+    line-height: 60px;
+}
+
+.footer {
+    height: 40px;
+    background-color: #f1f1f1;
+    text-align: center;
+    line-height: 40px;
+}
+
+.main {
+    padding: 20px;
+    flex-grow: 1; 
+}
+
+/* Module */  
+.form-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* State */
+.button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px; 
+}
+
+.button:hover {
+    background-color: #218838;
+}
+
+/* Theme */
+.theme-dark {
+    background-color: #333;
+    color: white;
+}
+
+.theme-dark .header {
+    background-color: #222;
+}
+
+.theme-dark .footer {
+    background-color: #444;
+    color: white;
+}
+
+.theme-dark .form-card {
+    background-color: #222;
+    color: white;
+    border: 1px solid #444;
+}
+
+.theme-dark .form-input {
+    border: 1px solid #555;
+    background-color: #333;
+    color: white;
+}
+
+</style>
+<body>
+  <header class="header">Contact Us</header>
+
+  <main class="main">
+    <section class="module form-card">
+      <h2>Get in Touch</h2>
+      <form id="contact-form">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message:</label>
+          <textarea id="message" class="form-input" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="button">Send Message</button>
+      </form>
+      <button class="button" id="theme-toggle">Toggle Theme</button>
+    </section>
+  </main>
+
+  <footer class="footer">© 2024 Contact Form Page</footer>
+
+  <script>
+    // Theme toggle functionality
+document.getElementById('theme-toggle').addEventListener('click', function() {
+    document.body.classList.toggle('theme-dark');
+});
+
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+    alert('Message sent!'); // Simulate sending a message
+});
+
+  </script>
+</body>
+</html>
